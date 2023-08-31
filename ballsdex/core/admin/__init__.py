@@ -26,8 +26,8 @@ from starlette.status import (
     HTTP_500_INTERNAL_SERVER_ERROR,
 )
 
-from ballsdex.__main__ import TORTOISE_ORM
-from ballsdex.core.admin.resources import User
+from cricdex.__main__ import TORTOISE_ORM
+from cricdex.core.admin.resources import User
 
 BASE_DIR = pathlib.Path(".")
 
@@ -40,8 +40,8 @@ def init_fastapi_app() -> FastAPI:
         name="static",
     )
     app.mount(
-        "/ballsdex/core/image_generator/src",
-        StaticFiles(directory=BASE_DIR / "ballsdex/core/image_generator/src"),
+        "/cricdex/core/image_generator/src",
+        StaticFiles(directory=BASE_DIR / "cricdex/core/image_generator/src"),
         name="image_gen",
     )
 
@@ -57,7 +57,7 @@ def init_fastapi_app() -> FastAPI:
     @app.on_event("startup")
     async def startup():
         redis = aioredis.from_url(
-            os.environ.get("BALLSDEXBOT_REDIS_URL"), decode_responses=True, encoding="utf8"
+            os.environ.get("CRICDEXBOT_REDIS_URL"), decode_responses=True, encoding="utf8"
         )
         await admin_app.configure(
             logo_url="https://i.imgur.com/HwNKi5a.png",
