@@ -6,12 +6,12 @@ from fastapi_admin.resources import Field, Link, Model, Action
 from fastapi_admin.widgets import displays, filters, inputs
 from starlette.requests import Request
 from ballsdex.core.models import (
-    Regime,
+    Cricketers,
     Economy,
     Special,
     BallInstance,
     User,
-    Ball,
+    Cards,
     Player,
     GuildConfig,
     BlacklistedID,
